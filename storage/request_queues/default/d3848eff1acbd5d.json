@@ -1,0 +1,17 @@
+{
+  "unique_key": "https://crawlee.dev/js/docs/3.12/quick-start",
+  "url": "https://crawlee.dev/js/docs/3.12/quick-start",
+  "method": "GET",
+  "payload": null,
+  "headers": {},
+  "user_data": {
+    "__crawlee": {
+      "enqueueStrategy": "same-hostname",
+      "crawlDepth": 2
+    }
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null
+}
