@@ -3,9 +3,14 @@ from crawl4ai.async_configs import BrowserConfig, CacheMode, CrawlerRunConfig, D
 import asyncio
 from crawl4ai.deep_crawling.scorers import KeywordRelevanceScorer
 from crawl4ai import AsyncWebCrawler
+from crawl4ai.content_filter_strategy import PruningContentFilter
 import os
 import json
 import hashlib
+import xml.etree.ElementTree as ET
+
+
+SITEMAP_PATH = "sitemap.xml"
 
 
 def select_markdown_text(result):
@@ -32,6 +37,20 @@ def has_crawl_error(result, markdown_text):
     ]
     return any("Crawl4AI Error:" in marker for marker in error_markers)
 
+
+def load_urls_from_sitemap(sitemap_path):
+    """Load all <loc> URLs from a sitemap.xml file."""
+    tree = ET.parse(sitemap_path)
+    root = tree.getroot()
+    urls = []
+
+    for loc in root.findall(".//{*}loc"):
+        if loc.text and loc.text.strip():
+            urls.append(loc.text.strip())
+
+    # Preserve order while removing duplicates.
+    return list(dict.fromkeys(urls))
+
 async def main():
     browser_config = BrowserConfig(
         headless=True,
@@ -39,20 +58,23 @@ async def main():
     )
 
     markdown_generator = DefaultMarkdownGenerator(
-        # content_filter=PruningContentFilter(
-        #     threshold=0.6
-        # ),
-        # options={
-        #     "ignore_links" : True
-        # }
+        content_filter=PruningContentFilter(
+            threshold=0.6
+        ),
+        options={
+            "ignore_links" : True
+        }
     )
 
-    urls1 = [
+    if not os.path.exists(SITEMAP_PATH):
+        raise FileNotFoundError(f"Could not find sitemap file: {SITEMAP_PATH}")
 
-        "https://www.geeksforgeeks.org/artificial-intelligence/agent-based-modelling/",
-        "https://www.geeksforgeeks.org/courses/category/dsa-placements",
-        "https://www.anylogic.com/use-of-simulation/agent-based-modeling/",
-    ]
+    urls1 = load_urls_from_sitemap(SITEMAP_PATH)
+    if not urls1:
+        raise ValueError(f"No URLs found in sitemap file: {SITEMAP_PATH}")
+
+    print(f"Loaded {len(urls1)} seed URLs from {SITEMAP_PATH}")
+
     score = KeywordRelevanceScorer(
         keywords = ["Agent", "agent", "system"],
         weight=0.7
