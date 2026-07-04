@@ -1,17 +1,20 @@
+## Import Data
+
 from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.async_configs import BrowserConfig, CacheMode, CrawlerRunConfig, DefaultMarkdownGenerator
 import asyncio
 from crawl4ai.deep_crawling.scorers import KeywordRelevanceScorer
-from crawl4ai import AsyncWebCrawler
+from crawl4ai import AsyncWebCrawler, AdaptiveCrawler
 from crawl4ai.content_filter_strategy import PruningContentFilter
 import os
 import json
 import hashlib
 import xml.etree.ElementTree as ET
-from crawl4ai import AdaptiveCrawler
+
 
 
 SITEMAP_PATH = "sitemap.xml"
+adpative = AdaptiveCrawler()
 
 
 def select_markdown_text(result):
@@ -80,6 +83,18 @@ async def main():
         keywords = ["Agent", "agent", "system"],
         weight=0.6
     )
+
+    adaptive_config = adaptive_config(
+        confidence_threshold = 0.8,
+        strategy = "embedding",
+        embedding_model = "ollama/nomic-embed-text:latest",
+        
+    
+        
+    )
+
+
+
 
     
 
