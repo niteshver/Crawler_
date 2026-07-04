@@ -8,6 +8,7 @@ import os
 import json
 import hashlib
 import xml.etree.ElementTree as ET
+from crawl4ai import AdaptiveCrawler
 
 
 SITEMAP_PATH = "sitemap.xml"
@@ -69,7 +70,7 @@ async def main():
     if not os.path.exists(SITEMAP_PATH):
         raise FileNotFoundError(f"Could not find sitemap file: {SITEMAP_PATH}")
 
-    urls1 = load_urls_from_sitemap(SITEMAP_PATH)
+    urls1 = load_urls_from_sitemap(SITEMAP_PATH) 
     if not urls1:
         raise ValueError(f"No URLs found in sitemap file: {SITEMAP_PATH}")
 
@@ -77,7 +78,7 @@ async def main():
 
     score = KeywordRelevanceScorer(
         keywords = ["Agent", "agent", "system"],
-        weight=0.7
+        weight=0.6
     )
 
     
