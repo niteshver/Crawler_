@@ -94,48 +94,204 @@
 # if __name__ == "__main__":
 #     asyncio.run(run_github_pipeline())
 
+""""""
+# from usp.tree import sitemap_tree_for_homepage
+# from crawl4ai import AsyncUrlSeeder, SeedingConfig
+# import asyncio
 
-from usp.tree import sitemap_tree_for_homepage
-from crawl4ai import AsyncUrlSeeder, SeedingConfig
-import asyncio
+# # -------------------------------
+# # Download sitemap
+# # -------------------------------
 
-# -------------------------------
-# Download sitemap
-# -------------------------------
+# tree = sitemap_tree_for_homepage("https://pypi.org")
 
-tree = sitemap_tree_for_homepage("https://pypi.org")
+# sitemap_path = "data/raw/sitemap/sitemap_urls.txt"
 
-sitemap_path = "data/raw/sitemap/sitemap_urls.txt"
-
-with open(sitemap_path, "w", encoding="utf-8") as f:
-    for page in tree.all_pages():
-        print(page.url)
-        f.write(page.url + "\n")
-
-
-# -------------------------------
-# Extract URLs
-# -------------------------------
-
-async def smart_url_extraction():
-    seeder = AsyncUrlSeeder()
-
-    config = SeedingConfig(
-        pattern="*/project/*",
-        extract_head=100,
-    )
-
-    urls = await seeder.urls(sitemap_path, config=config)
-    filtered_path = "data/raw/sitemap/project_urls.txt"
-
-    with open(filtered_path, "w", encoding="utf-8") as f:
-        for page in urls:
-            print(page)
-            f.write(page + "\n")
+# with open(sitemap_path, "w", encoding="utf-8") as f:
+#     for page in tree.all_pages():
+#         print(page.url)
+#         f.write(page.url + "\n")
 
 
-if __name__ == "__main__":
-    asyncio.run(smart_url_extraction())
+# # -------------------------------
+# # Extract URLs
+# # -------------------------------
+
+# async def smart_url_extraction():
+#     seeder = AsyncUrlSeeder()
+
+#     config = SeedingConfig(
+#         pattern="*/project/*",
+#         extract_head=100,
+#     )
+
+#     urls = await seeder.urls(sitemap_path, config=config)
+#     filtered_path = "data/raw/sitemap/project_urls.txt"
+
+#     with open(filtered_path, "w", encoding="utf-8") as f:
+#         for page in urls:
+#             print(page)
+#             f.write(page + "\n")
+
+
+# if __name__ == "__main__":
+#     asyncio.run(smart_url_extraction())
 
 
    
+# from crawl4ai import CrawlerMonitor
+# import inspect
+
+# print(inspect.signature(CrawlerMonitor))
+
+import asyncio
+from datetime import datetime
+import xml.etree.ElementTree as ET
+
+from crawl4ai import AsyncUrlSeeder, SeedingConfig
+
+
+# -------------------------------------
+# Websites
+# -------------------------------------
+
+SOURCES = {
+
+    "python": [
+        "docs.python.org",
+        "pypi.org",
+    ],
+
+    "ai": [
+        "huggingface.co",
+        "python.langchain.com",
+        "openai.com",
+        "anthropic.com",
+    ],
+
+    "research": [
+        "arxiv.org",
+        "paperswithcode.com",
+        "openreview.net",
+        "aclanthology.org",
+    ],
+
+}
+
+
+# -------------------------------------
+# Discover URLs
+# -------------------------------------
+
+async def discover_urls():
+
+    config = SeedingConfig(
+        source="sitemap+cc",
+        extract_head=False,
+        filter_nonsense_urls=True,
+        max_urls=-1,
+        concurrency=20,
+    )
+
+    all_urls = []
+
+    async with AsyncUrlSeeder() as seeder:
+
+        for category, domains in SOURCES.items():
+
+            print(f"\nDiscovering {category} websites...")
+
+            results = await seeder.many_urls(
+                domains,
+                config
+            )
+
+            for domain, pages in results.items():
+
+                print(f"{domain}: {len(pages)} URLs")
+
+                for page in pages:
+
+                    all_urls.append({
+
+                        "url": page["url"],
+
+                        "source": category,
+
+                        "domain": domain,
+
+                    })
+
+    return all_urls
+
+
+# -------------------------------------
+# Generate XML
+# -------------------------------------
+
+def build_xml(urls):
+
+    unique = {}
+
+    for page in urls:
+        unique[page["url"]] = page
+
+    root = ET.Element(
+        "urlset",
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    )
+
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    for page in sorted(unique.values(), key=lambda x: x["url"]):
+
+        url = ET.SubElement(root, "url")
+
+        loc = ET.SubElement(url, "loc")
+        loc.text = page["url"]
+
+        lastmod = ET.SubElement(url, "lastmod")
+        lastmod.text = today
+
+        changefreq = ET.SubElement(url, "changefreq")
+        changefreq.text = "weekly"
+
+        priority = ET.SubElement(url, "priority")
+
+        if page["source"] == "research":
+            priority.text = "1.0"
+
+        elif page["source"] == "python":
+            priority.text = "0.9"
+
+        else:
+            priority.text = "0.8"
+
+    tree = ET.ElementTree(root)
+
+    ET.indent(tree)
+
+    tree.write(
+        "master_seed.xml",
+        encoding="utf-8",
+        xml_declaration=True
+    )
+
+    print("\nmaster_seed.xml created!")
+
+
+# -------------------------------------
+# Main
+# -------------------------------------
+
+async def main():
+
+    urls = await discover_urls()
+
+    print(f"\nTotal URLs: {len(urls)}")
+
+    build_xml(urls)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -1,20 +1,45 @@
 ## Import Data
-
 from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
-from crawl4ai.async_configs import BrowserConfig, CacheMode, CrawlerRunConfig, DefaultMarkdownGenerator
+from crawl4ai.async_configs import BrowserConfig, CacheMode, CrawlerRunConfig, DefaultMarkdownGenerator, ProxyConfig
 import asyncio
 from crawl4ai.deep_crawling.scorers import KeywordRelevanceScorer
 from crawl4ai import AsyncWebCrawler, AdaptiveCrawler
 from crawl4ai.content_filter_strategy import PruningContentFilter
+from crawl4ai import CrawlerMonitor, DisplayMode
+from crawl4ai.async_dispatcher import MemoryAdaptiveDispatcher
+from crawl4ai import SeedingConfig, async_url_seeder
 import os
 import json
 import hashlib
+import aiohttp
 import xml.etree.ElementTree as ET
+from pathlib import Path
 from transformers import pipeline
 
 
-SITEMAP_PATH = "sitemap.xml"
-adpative = AdaptiveCrawler()
+SOURCES = {
+    "python": [
+        "docs.python.org",
+        "pypi.org",
+    ],
+
+    "ai": [
+        "huggingface.co",
+        "langchain.com",
+        "openai.com",
+        "anthropic.com",
+    ],
+
+    "research": [
+        "arxiv.org",
+        "paperswithcode.com",
+        "openreview.net",
+        "aclanthology.org",
+    ],
+}
+
+SITEMAP_PATH = Path(__file__).resolve().parents[2] / "data/raw/sitemap/sitemap_data.xml"
+# adpative = AdaptiveCrawler()
 
 
 def select_markdown_text(result):
@@ -55,6 +80,19 @@ def load_urls_from_sitemap(sitemap_path):
     # Preserve order while removing duplicates.
     return list(dict.fromkeys(urls))
 
+
+# For robot.txt
+async def external_api_fetch(urls : str) -> str:
+    """load from external links"""
+    async with aiohttp.Client_Session() as seission:
+        async with seission.post(
+            "https://api.my-service.com/scrape",
+            json={"url": urls, "render_js": True},
+            headers={"Authorization": "Bearer MY_TOKEN"},
+        ) as resp:
+            return await resp.text()
+            
+
 async def main():
     browser_config = BrowserConfig(
         headless=True,
@@ -79,24 +117,34 @@ async def main():
 
     print(f"Loaded {len(urls1)} seed URLs from {SITEMAP_PATH}")
 
+
+
     score = KeywordRelevanceScorer(
         keywords = ["Agent", "agent", "system"],
         weight=0.6
     )
+    dispatcher = MemoryAdaptiveDispatcher(
+        memory_threshold_percent=95.0,
+        check_interval=1.0,
+        max_session_permit=10,
+        # monitor=CrawlerMonitor(
+        #     max_visible_rows=15,
+        #     DisplayMode=DisplayMode.DETAILED
 
-    adaptive_config = adaptive_config(
-        confidence_threshold = 0.8,
-        strategy = "embedding",
-        embedding_model = "ollama/nomic-embed-text:latest",
-        
-    
-        
+        # )
     )
 
-
-
-
     
+
+    # adaptive_config = adaptive_config(
+    #     confidence_threshold = 0.8,
+    #     strategy = "embedding",
+    #     embedding_model = "ollama/nomic-embed-text:latest",
+        
+    
+        
+    # )
+
 
     strategy = BFSDeepCrawlStrategy(
         max_depth= 2,
@@ -107,6 +155,22 @@ async def main():
     )
 
     config_run = CrawlerRunConfig(
+        # magic = True,
+        wait_until="load",
+        max_retries = 3,
+        proxy_config=[
+            ProxyConfig.DIRECT,
+            ProxyConfig(
+                server="http://datacenter-proxy.example.com:8080",
+                username="user",
+                password="pass",
+            ),
+            ProxyConfig(
+                server="http://residential-proxy.example.com:9090",
+                username="user",
+                password="pass"
+            ),
+        ],
         markdown_generator=markdown_generator,
         deep_crawl_strategy=strategy,
         stream=True,
@@ -117,8 +181,18 @@ async def main():
         remove_forms=True,
         cache_mode=CacheMode.BYPASS,
         magic=True,
+        # config = SeedingConfig(
+        #     source="sitemap+cc",     # Search sitemap + Common Crawl
+        #     extract_head=False,
+        #     max_urls=-1,             # No limit
+        #     pattern="*",
+        #     concurrency=20,
+        # )
+    
+
         
     )
+
 
     os.makedirs("data/raw/markdown", exist_ok=True)
     os.makedirs("data/raw/json", exist_ok=True)
@@ -126,7 +200,9 @@ async def main():
     async with AsyncWebCrawler(config=browser_config) as crawler:
         async for result in await crawler.arun_many(
             urls=urls1,
-            config = config_run
+            # SOURCES=SOURCES,
+            config = config_run,
+            dispatcher=dispatcher,
         ):
             metadata = result.metadata or {}
             markdown_text = select_markdown_text(result)

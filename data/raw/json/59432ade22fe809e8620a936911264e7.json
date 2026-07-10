@@ -1,8 +1,8 @@
 {
-    "url": "https://deepai.org/chat",
-    "title": "AI Chat",
+    "url": "https://deepai.org/chat/comedian",
+    "title": "AI Comedian",
     "status": 200,
-    "markdown": "Chat History\nNew Chat\n# AI Chat\n### AI Chat is an AI chatbot that writes text. You can use it to write stories, messages, or programming code.\nUpload Successful!\nYou can attach up to 10 images per message. Please remove any extra images and try again.\nThis file type is not supported. Please try again.\nThis file exceeds the maximum file size of 20MB. Please select smaller files and try again.\nUpload Unsuccessful. Please try again.\nSummarizing!\nAn error has occurred\nAdd Photos & Files Search Online Create Image Deep Research Voice Chat\nAdd files and more/\nAI Chat can make mistakes. By messaging AI Chat, you agree to our Terms of Service, and acknowledge our Privacy Policy. \nChat with AI Characters! Search Online Create Image Deep Research Gemini 3.1 Pro Claude Opus 4.7 Claude Fable 5\nChat Presets\nAI Chat AI Text Generator AI Poem Generator AI Storyteller ChatGPT Alternative GPT Chat AI Code AI Relationship Coach AI Debate AI Drunk Friend Translate AI Comedian AI Proofreader AI Movie Critic AI Philosophy Teacher AI Writer AI Novelist\nDeleting a Character\nAre you sure you want to delete this character? This action cannot be undone. \n## Login\nPlease sign up or login with your details \nContinue with Google  Or login with email Login Forgot password? Click here to reset Go back\nUnlock AI power with \nSubscribe\nSee Full Pricing \n×\n## Out of credits\n$5.00 USD $10.00 USD $20.00 USD $50.00 USD $100.00 USD $200.00 USD $500.00 USD $1000.00 USD\nAdd Credits\nEnable Auto Top-Up\nAutomatically add credits when your balance is low. Never run out again!\nSuccess!\nAn error occurred\nShare\nShare your generations with friends\n×\n## Sign in with Google\n×\nUse your Google Account to sign in to DeepAI\nContinue \n## Consider DeepAI Pro\n  * World's best value AI at $9.99 per month\n  * Smarter AI Chat\n  * Highest quality AI Images, Videos, and Music\n  * 100% Ad-free\n\nSubscribe \nPin Move to folder… Rename Delete\n",
+    "markdown": "Chat History\nNew Chat\n# AI Comedian\n### Ask the AI stand-up comedian to tell funny jokes! Give the comedian a topic to tell jokes about, and it will come up with seriously funny material!\nUpload Successful!\nYou can attach up to 10 images per message. Please remove any extra images and try again.\nThis file type is not supported. Please try again.\nThis file exceeds the maximum file size of 20MB. Please select smaller files and try again.\nUpload Unsuccessful. Please try again.\nSummarizing!\nAn error has occurred\nAdd Photos & Files Search Online Create Image Deep Research Voice Chat\nAdd files and more/\nAI Chat can make mistakes. By messaging AI Chat, you agree to our Terms of Service, and acknowledge our Privacy Policy. \nChat with AI Characters! Search Online Create Image Deep Research Gemini 3.1 Pro Claude Opus 4.7 Claude Fable 5\nChat Presets\nAI Chat AI Text Generator AI Poem Generator AI Storyteller ChatGPT Alternative GPT Chat AI Code AI Relationship Coach AI Debate AI Drunk Friend Translate AI Comedian AI Proofreader AI Movie Critic AI Philosophy Teacher AI Writer AI Novelist\nDeleting a Character\nAre you sure you want to delete this character? This action cannot be undone. \n## Login\nPlease sign up or login with your details \nContinue with Google  Or login with email Login Forgot password? Click here to reset Go back\nUnlock AI power with \nSubscribe\nSee Full Pricing \n×\n## Out of credits\n$5.00 USD $10.00 USD $20.00 USD $50.00 USD $100.00 USD $200.00 USD $500.00 USD $1000.00 USD\nAdd Credits\nEnable Auto Top-Up\nAutomatically add credits when your balance is low. Never run out again!\nSuccess!\nAn error occurred\nShare\nShare your generations with friends\n×\n## Sign in with Google\n×\nUse your Google Account to sign in to DeepAI\nContinue \n## Consider DeepAI Pro\n  * World's best value AI at $9.99 per month\n  * Smarter AI Chat\n  * Highest quality AI Images, Videos, and Music\n  * 100% Ad-free\n\nSubscribe \nPin Move to folder… Rename Delete\n",
     "internal_links": [
         {
             "href": "https://deepai.org/",
@@ -115,6 +115,18 @@
         {
             "href": "https://deepai.org/docs",
             "text": "Docs",
+            "title": "",
+            "base_domain": "deepai.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://deepai.org/chat/comedian",
+            "text": "Your Privacy Choices",
             "title": "",
             "base_domain": "deepai.org",
             "head_data": null,
@@ -281,18 +293,6 @@
             "total_score": null
         },
         {
-            "href": "https://deepai.org/chat/comedian",
-            "text": "AI Comedian",
-            "title": "",
-            "base_domain": "deepai.org",
-            "head_data": null,
-            "head_extraction_status": null,
-            "head_extraction_error": null,
-            "intrinsic_score": 0.0,
-            "contextual_score": null,
-            "total_score": null
-        },
-        {
             "href": "https://deepai.org/chat/proofreader",
             "text": "AI Proofreader",
             "title": "",
@@ -356,21 +356,21 @@
     "external_links": [],
     "images": [],
     "metadata": {
-        "title": "AI Chat",
-        "description": "AI Chat is an AI chatbot that writes text. You can use it to write stories, messages, or programming code.",
+        "title": "AI Comedian",
+        "description": "Ask the AI stand-up comedian to tell funny jokes! Give the comedian a topic to tell jokes about, and it will come up with seriously funny material!",
         "keywords": null,
         "author": null,
-        "og:url": "https://deepai.org/chat",
+        "og:url": "https://deepai.org/comedian",
         "og:site_name": "DeepAI",
         "og:type": "article",
-        "og:title": "AI Chat - DeepAI",
-        "og:description": "AI Chat is an AI chatbot that writes text. You can use it to write stories, messages, or programming code.",
+        "og:title": "AI Comedian - DeepAI",
+        "og:description": "Ask the AI stand-up comedian to tell funny jokes! Give the comedian a topic to tell jokes about, and it will come up with seriously funny material!",
         "twitter:card": "summary_large_image",
         "twitter:site": "@DeepAI",
         "twitter:creator": "@DeepAI",
-        "twitter:title": "AI Chat - DeepAI",
-        "twitter:description": "AI Chat is an AI chatbot that writes text. You can use it to write stories, messages, or programming code.",
-        "depth": 1,
-        "parent_url": "https://deepai.org/"
+        "twitter:title": "AI Comedian - DeepAI",
+        "twitter:description": "Ask the AI stand-up comedian to tell funny jokes! Give the comedian a topic to tell jokes about, and it will come up with seriously funny material!",
+        "depth": 2,
+        "parent_url": "https://deepai.org/chat/mathematics"
     }
 }

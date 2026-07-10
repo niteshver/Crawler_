@@ -1,3 +1,4 @@
-python >= 3.14.5
-crawl4ai >= 0.9.0
-
+crawl4ai>=0.9.1
+sentence-transformers>=5.6.0
+transformers>=5.13.0
+ultimate-sitemap-parser>=1.8.1

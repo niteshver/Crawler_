@@ -276,7 +276,7 @@
             "data": "",
             "alt": "DeepAI Robot",
             "desc": "About DeepAI\n\n        \n          DeepAI is the all-in-one creative AI platform built for everyone. We got our start in late 2016 with the first browser-based text-to-image generator (and some other generative tools). Since then, we have greatly expanded: with a single prompt, you can generate images, edit photos, chat with an AI that browses the internet, create short videos, compose original music, or chat with a realistic AI using your voice. All of these features are available instantly in your browser, and many are available through simple APIs.\n\n          You can explore DeepAI for free without creating an account. DeepAI Pro costs $9.99 per month and includes high-volume usage, private generations, and an ad-free experience, which we proudly feel is one of the best deals on the market.\n\n          We are committed to radical accessibility. Our platform provides fast tools, real email support for every user, and a clear policy that gives you full ownership of everything you create. Whether you are a hobbyist, a professional artist, or a developer integrating AI into your product, DeepAI delivers advanced technology with new video, music, and voice chat features. No competitor matches our combination of price, features, and ease of use.\n\n          Beyond our consumer platform, we also take on custom technical projects for governments, nonprofits, and research organizations. Our team builds specialized computer vision systems, deploys perception and mapping pipelines across complex sensor networks, and solves challenging real-world problems that require production-grade AI solutions. If you have a unique technical challenge, we're equipped to help.",
-            "score": 3,
+            "score": 5,
             "type": "image",
             "group_id": 6,
             "format": "jpg",
@@ -287,7 +287,7 @@
             "data": "",
             "alt": "African Wildlife",
             "desc": "African Wildlife Protection\n            Working with",
-            "score": 3,
+            "score": 5,
             "type": "image",
             "group_id": 7,
             "format": "webp",
@@ -323,6 +323,17 @@
             "score": 3,
             "type": "image",
             "group_id": 10,
+            "format": "webp",
+            "width": null
+        },
+        {
+            "src": "/static/images/aiforgood-planetary.webp",
+            "data": "",
+            "alt": "Planetary Defense",
+            "desc": "Planetary Defense\n            We even contributed to space science through the",
+            "score": 3,
+            "type": "image",
+            "group_id": 11,
             "format": "webp",
             "width": null
         }
