@@ -8,6 +8,7 @@ from crawl4ai.content_filter_strategy import PruningContentFilter
 from crawl4ai import CrawlerMonitor, DisplayMode
 from crawl4ai.async_dispatcher import MemoryAdaptiveDispatcher, RateLimiter
 from crawl4ai import SeedingConfig, async_url_seeder
+from sources.sources import SOURCES
 import os
 import json
 import hashlib
@@ -17,28 +18,8 @@ from pathlib import Path
 from transformers import pipeline
 
 
-SOURCES = {
-    "python": [
-        "docs.python.org",
-        "pypi.org",
-    ],
 
-    "ai": [
-        "huggingface.co",
-        "langchain.com",
-        "openai.com",
-        "anthropic.com",
-    ],
-
-    "research": [
-        "arxiv.org",
-        "paperswithcode.com",
-        "openreview.net",
-        "aclanthology.org",
-    ],
-}
-
-SITEMAP_PATH = Path(__file__).resolve().parents[2] / "data/raw/sitemap/master_seed.xml"
+SITEMAP_PATH = Path(__file__).resolve().parents[2] / "data/raw/sitemap/example"
 # adpative = AdaptiveCrawler()
 
 
@@ -120,7 +101,7 @@ async def main():
 
 
     score = KeywordRelevanceScorer(
-        keywords = ["Agent", "agent", "system"],
+        keywords = ["Agent", "agent", "system", "ai", "AI", "ml", "ML"],
         weight=0.6
     )
     # dispatcher = MemoryAdaptiveDispatcher(

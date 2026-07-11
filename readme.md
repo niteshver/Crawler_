@@ -1,5 +1,6 @@
 # NexaSearch 
 
+A open Source Verticel Search Engine
 ``` text
 Seed Sources
 │
@@ -277,58 +278,6 @@ Combine:
 ## Final Architecture 
 
 ``` bash
-                 Seed Collection
-                        │
-                        ▼
-                 URL Frontier
-                        │
-                        ▼
-          Crawl4AI (BFS / Adaptive)
-                        │
-                        ▼
-                  Raw HTML Storage
-                        │
-                        ▼
-          Trafilatura Content Extraction
-                        │
-                        ▼
-               Text Cleaning Pipeline
-                        │
-        ┌───────────────┼───────────────┐
-        ▼               ▼               ▼
-  PII Removal    Language Detection  Metadata
-        │               │               │
-        └───────────────┴───────────────┘
-                        ▼
-              URL Canonicalization
-                        ▼
-        Exact Duplicate (SHA256)
-                        ▼
-   Near Duplicate (MinHash + LSH)
-                        ▼
-         DistilBERT Quality Filter
-                        ▼
-          Topic Classification
-                        ▼
-                 Chunk Documents
-                        ▼
-        Store (Parquet / DuckDB)
-                        ▼
-          Embedding Generation
-                        ▼
-      BM25 + Vector + Metadata Index
-                        ▼
-              Hybrid Search Engine
-                        ▼
-             LLM Re-ranking
-                        ▼
-              Final AI Response
-
-```
-
-## 2nd architecture (Hybrid Architecture)
-
-``` bash
 
                       Seed URLs
                            │
@@ -416,4 +365,60 @@ Combine:
                            │
                            ▼
                     Final AI Response
+```
+
+## Project Structure
+
+``` 
+NexaSearch/
+├── .venv/
+├── .env
+├── .gitignore
+├── pyproject.toml
+├── requirements.txt
+├── README.md
+├── project_timeline.md
+│
+├── sources/
+│   ├── __init__.py
+│   └── sources.py
+│
+├── src/
+│   ├── crawler/
+│   │   ├── __init__.py
+│   │   ├── crawler.py
+│   │   ├── adaptive_crawl.py
+│   │   └── sitemap.py
+│   │
+│   ├── cleaner/
+│   │   ├── __init__.py
+│   │   └── distil_robert.py
+│   │
+│   ├── pipeline/
+│   │   └── __init__.py
+│   │
+│   └── utils/
+│       └── __init__.py
+│
+├── data/
+│   ├── raw/
+│   │   ├── json/
+│   │   ├── markdown/
+│   │   └── sitemap/
+│   │       ├── sitemap_data.xml
+│   │       └── sitemap_url.xml
+│   │
+│   ├── processed/
+│   └── cleaned/
+│
+├── tests/
+│   ├── test_crawler.py
+│   ├── test_sitemap.py
+│   ├── test_cleaner.py
+│   └── test_sources.py
+│
+├── docs/
+├── scripts/
+└── logs/
+
 ```
