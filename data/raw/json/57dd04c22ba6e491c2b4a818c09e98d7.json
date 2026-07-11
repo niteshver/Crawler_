@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/1999.mtsummit-1.30.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@inproceedings{sanfilippo-etal-1999-human,\n    title = \"Human language technologies for the information society: roles, plans and visions of funding agencies\",\n    author = \"Sanfilippo, Antonio  and\n      Bai, Shuo  and\n      Cencioni, Roberto  and\n      Izumi, Akira  and\n      Strong, Gary  and\n      Theologitis, Dimitrios\",\n    booktitle = \"Proceedings of Machine Translation Summit VII\",\n    month = sep # \" 13-17\",\n    year = \"1999\",\n    address = \"Singapore, Singapore\",\n    url = \"https://aclanthology.org/1999.mtsummit-1.30/\",\n    pages = \"191--196\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/people/roberto-cencioni/unverified/"
+    }
+}

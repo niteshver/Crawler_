@@ -19,7 +19,7 @@ SOURCES = {
 
     "ai": [
         "huggingface.co",
-        "python.langchain.com",
+        "langchain.com",
         "openai.com",
         "anthropic.com",
     ],

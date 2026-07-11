@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/2016.amta-researchers.1.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@inproceedings{chatterjee-etal-2016-instance,\n    title = \"Instance Selection for Online Automatic Post-Editing in a multi-domain scenario\",\n    author = \"Chatterjee, Rajen  and\n      Arcan, Mihael  and\n      Negri, Matteo  and\n      Turchi, Marco\",\n    editor = \"Green, Spence  and\n      Schwartz, Lane\",\n    booktitle = \"Conferences of the Association for Machine Translation in the Americas: MT Researchers' Track\",\n    month = oct # \" 28 - \" # nov # \" 1\",\n    year = \"2016\",\n    address = \"Austin, TX, USA\",\n    publisher = \"The Association for Machine Translation in the Americas\",\n    url = \"https://aclanthology.org/2016.amta-researchers.1/\",\n    pages = \"1--15\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/volumes/2016.amta-researchers/"
+    }
+}

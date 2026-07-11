@@ -1,0 +1,114 @@
+{
+    "url": "https://aclanthology.org/info/corrections/",
+    "title": "Requesting Corrections - ACL Anthology",
+    "status": 200,
+    "markdown": "## Requesting Corrections\nHow to submit corrections to the Anthology\nAugust 2, 2025\n### What type of correction do I need?\nOur central guiding corrections principle is that **we view the content of PDFs as authoritative**. If you see errors or inconsistencies in the metadata (author list, title, abstract), you need to first check to see if it matches the PDF.\nThis view drives two main types of **paper-level corrections** :\n  * _There are problems with the PDF_. We can process corrections, revisions, errata, and retractions.\n  * _The PDF is fine, but there are problems with the metadata_. Errors in the title, abstract, author names, or list of authors.\n\n\nBelow, we describe the process for addressing these types of corrections.\nAdditionally, there are two main types of **corrections to author pages**. For these, please see Author pages.\n  * You have more than one author page. This occurs if you published papers under different variations of your name, or if you changed your name.\n  * Your papers are mixed with someone else’s. If multiple people publish under the same name, we need to manually disambiguate them.\n\n\n### Metadata corrections\nCorrections to **metadata** do not require changing the PDF. These kinds of corrections bring the information presented in the Anthology in line with the authoritative PDF.\nA request to change paper metadata can be submitted in two ways.\n  * _Have us do the work_. You can submit an issue to Anthology staff.\n    * _(Preferred)_ Navigate to the paper’s page in the ACL Anthology (e.g., K17-1003). From there, click the yellow “Fix data” button. This will display a dialog that you can use to correct the title, abstract, and author information. Submitting this form will fill a Github issue template with a JSON data block. We process these semiautomatically on a weekly basis.\n    * If your issue is sensitive, you can alternately contact us via email at \n  * _Make the change yourself_. \n\n\nMetadata changes are generally accepted if they are consistent with the PDF, which we take as authoritative.\n**Note on changes to author metadata**\nBecause it is beyond our ability to keep track of the many differing policies governing conferences and journals whose proceedings we host, it is therefore up to those groups to ensure that PDF authorship is correct when proceedings are delivered to the Anthology for ingestion.\nWe reserve the right to seek permission or corroboration from the associated conference or workshop program chairs in unusual situations, such as removing or adding an author to a PDF revision. In such cases, we will ask authors to arrange for this permission to be conveyed to us, either (ideally) on the corresponding Github issue or via email.\n### PDF corrections\nOur PDF corrections process loosely follows the \n  * An **erratum** clarifies errors made in the original scholarly work. Usually these are just short notes, corrective statements, or changes to equations or other problems in the original, which need to be read alongside the original work.\n  * A **revision** is a versioned replacement of the original scholarly work. This format allows a corrected paper to be read in place of the original scholarly work, and typically does not highlight the original’s errors.\n  * A **retraction** occurs when serious, unrecoverable errors are discovered, which drastically affect the findings of the original work.\n  * A **removal** occurs in rare circumstances where serious ethical or legal issues arise, such as plagiarism.\n\n\nPlease take note of the following points regarding revisions and retractions.\n  * The original published PDF is not invalidated. The original will still stand as published and cannot be withdrawn, and both will remain available and linked on the website.\n  * The landing page for the work will indicate the availability of the erratum or revision.\n  * We cannot currently regenerate the full volumes, which will continue to contain only the original papers.\n  * We have no control over how downstream consumers of the Anthology, such as search engine, process the changes.\n\n\n#### Revisions and errata\nFor requests to change paper _content_ (either a revision or an erratum), again, please **Please note the following** :\n  * Be sure to attach the revised PDF to the issue.\n  * For revisions, provide a brief summary of the changes. This summary will be included in the Anthology. Its intended audience is users of the Anthology, and should therefore be written from a neutral, scientific perspective.\n  * If the metadata also needs to change, please also follow the instructions in the previous section.\n  * If possible, when generating your revision, it would be good to add the proper proceedings header and footer stamps, as well as the correct page numbering. Unfortunately, we cannot provide any assistance with this task, but \n\n\nFor revisions, the brief summary should allow readers to find the changed parts, but need not be too detailed. Here are some good examples:\n  * _A sponsor was added to the Acknowledgments section._\n  * _Added a footnote to page 8 describing data processing._\n  * _Corrected a few citations; added Footnote 2 clarifying the baseline calculation; expanded the caption of Table 3; added a paragraph to the Related Works section._\n\n\nFollowing these instructions will help us to process corrections more quickly. We will do our best to process revisions or errata within four weeks, but make no guarantees as to the processing time. Submissions not meeting these standards will be rejected, potentially without notice.\nA revision that changes the author list needs permission (see below).\n#### Retractions\nTo initiate a retraction, please communicate directly with the Anthology director. Retractions often involve the organizing editors or chairs of the respective journal or conference.\nRetractions result in the following changes in the Anthology:\n  * The paper is processed as a revision. Each page of the revised PDF is marked with a prominent watermark reading “RETRACTED”.\n  * The paper’s title and author list are displayed with ~~strikeout text~~ in the volume and event listings.\n  * The paper’s canonical page contains a prominent notice of the retraction, Its title, author list, and abstract are presented in ~~strikeout text~~. No bibliographic files are generated, and the paper is not listed in the consolidated Anthology BibTeX file.\n  * The paper is removed entirely from the listing on the author page.\n\n\n#### Removal\nRemovals are rare events that are undertaken only in the most serious of situations, such as plagiarism or fraud. A paper can be removed at the request of the scientific organization with jurisdiction over the paper. For most papers within the Anthology, this is the \nA removal will result in the following changes to the Anthology:\n  * The paper PDF, along with all revisions and attachments, are removed from the Anthology. (They will, however, be preserved in the Anthology’s private storage.)\n  * The associated book will either be regenerated or will be edited to remove the offending paper.\n  * The paper will be removed from all listings, including the volume page, any events pages it is associated with, and the author page.\n  * The paper’s canonical page will be modified to contain a prominent notice of the removal. Its title and author list will be presented in ~~strikeout text~~. The abstract, if present, will be removed. No bibliographic files will be generated.\n\n\n",
+    "internal_links": [
+        {
+            "href": "https://aclanthology.org/",
+            "text": "ACL Anthology",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/posts/",
+            "text": "News(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/faq/",
+            "text": "FAQ(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/info/corrections/",
+            "text": "Corrections(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/info/contrib/",
+            "text": "Submissions(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/info/author-pages/",
+            "text": "Author pages",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/K17-1003",
+            "text": "K17-1003",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/info/credits/",
+            "text": "ACL Anthology team",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        }
+    ],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": "Requesting Corrections - ACL Anthology",
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 1,
+        "parent_url": "https://aclanthology.org/2016.amta-researchers.3/"
+    }
+}

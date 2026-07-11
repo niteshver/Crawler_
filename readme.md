@@ -367,7 +367,7 @@ Combine:
                     Final AI Response
 ```
 
-## Project Structure
+## Current Project Structure
 
 ``` 
 NexaSearch/
@@ -421,4 +421,198 @@ NexaSearch/
 ├── scripts/
 └── logs/
 
+```
+
+## Future Project Structure
+### Note :-  
+Project Structure may be vary o short accoding to need.
+``` bash
+
+NexaSearch/
+├── .venv/
+├── .env
+├── .env.example
+├── .gitignore
+├── .dockerignore
+├── pyproject.toml
+├── requirements.txt
+├── Makefile
+├── README.md
+├── project_timeline.md
+│
+├── config/
+│   ├── __init__.py
+│   ├── settings.py              # single source of truth for env vars (pydantic-settings)
+│   ├── logging.yaml
+│   ├── crawl_config.yaml        # frontier weights, depth limits, domain rules
+│   └── model_config.yaml        # embedding model, classifier thresholds, versions
+│
+├── sources/
+│   ├── __init__.py
+│   └── sources.py                # seed lists: docs, wikipedia, github, papers, RSS
+│
+├── src/
+│   ├── __init__.py
+│   │
+│   ├── crawler/
+│   │   ├── __init__.py
+│   │   ├── crawl4ai_client.py     # BFS / BestFirst / Adaptive strategy wrappers
+│   │   ├── sitemap.py             # sitemap.xml / RSS parsing
+│   │   ├── robots.py              # robots.txt compliance check
+│   │   ├── fetcher.py             # raw HTML fetch + retry/backoff
+│   │   └── visited_store.py       # URL hash / seen-before DB
+│   │
+│   ├── frontier/                  # <- promoted to its own module, not buried in crawler
+│   │   ├── __init__.py
+│   │   ├── priority_queue.py      # the actual queue implementation
+│   │   ├── scoring.py             # domain authority + freshness + topic relevance + depth
+│   │   └── scheduler.py           # adaptive scheduling loop, rate limiting per domain
+│   │
+│   ├── extractor/
+│   │   ├── __init__.py
+│   │   ├── trafilatura_extractor.py
+│   │   ├── justext_extractor.py
+│   │   ├── bs4_fallback.py
+│   │   └── link_extractor.py      # builds link graph from raw HTML
+│   │
+│   ├── processing/
+│   │   ├── __init__.py
+│   │   ├── clean.py               # boilerplate/scripts/whitespace/unicode normalize
+│   │   ├── pii.py                 # presidio / spacy / regex
+│   │   ├── language.py            # fasttext detection
+│   │   ├── metadata.py            # title, hash, word count, canonical url, crawl time
+│   │   └── dedup/
+│   │       ├── __init__.py
+│   │       ├── canonicalize.py    # URL canonicalization rules
+│   │       ├── exact.py           # SHA-256
+│   │       └── near.py            # MinHash + SimHash + LSH
+│   │
+│   ├── quality/
+│   │   ├── __init__.py
+│   │   ├── distilbert_classifier.py
+│   │   ├── readability.py
+│   │   └── toxicity_filter.py
+│   │
+│   ├── chunking/
+│   │   ├── __init__.py
+│   │   └── chunker.py
+│   │
+│   ├── storage/
+│   │   ├── __init__.py
+│   │   ├── duckdb_store.py
+│   │   ├── parquet_store.py
+│   │   └── jsonl_store.py
+│   │
+│   ├── embeddings/
+│   │   ├── __init__.py
+│   │   └── embedder.py            # Nomic / E5 wrapper
+│   │
+│   ├── indexing/
+│   │   ├── __init__.py
+│   │   ├── bm25_index.py
+│   │   ├── vector_index.py        # FAISS / Qdrant / Milvus
+│   │   └── hybrid_index.py        # merges BM25 + vector scores
+│   │
+│   ├── search/                    # <- query-time path, separate from indexing (build-time)
+│   │   ├── __init__.py
+│   │   ├── query.py               # query parsing / cleaning / expansion
+│   │   ├── retriever.py           # hits hybrid_index, returns candidates
+│   │   ├── reranker.py            # cross-encoder rerank
+│   │   └── ranking.py             # blends BM25 + embedding + freshness + authority
+│   │
+│   ├── rag/
+│   │   ├── __init__.py
+│   │   ├── context_builder.py     # assembles retrieved chunks into a prompt
+│   │   ├── generator.py           # LLM call for final answer
+│   │   └── citations.py           # maps generated text back to source chunks
+│   │
+│   ├── pipeline/
+│   │   ├── __init__.py
+│   │   ├── orchestrator.py        # runs crawl → process → index end-to-end
+│   │   ├── stages.py              # stage definitions/registry
+│   │   └── state.py               # per-URL/doc status tracking, resume on crash
+│   │
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── main.py                # FastAPI app entrypoint
+│   │   ├── routes/
+│   │   │   ├── __init__.py
+│   │   │   ├── search.py          # /search endpoint -> src/search
+│   │   │   ├── rag.py             # /ask endpoint -> src/rag
+│   │   │   └── crawl.py           # trigger/monitor crawl jobs
+│   │   ├── schemas.py             # pydantic request/response models
+│   │   └── deps.py                # shared dependencies (db conn, index handles)
+│   │
+│   └── utils/
+│       ├── __init__.py
+│       ├── io.py
+│       ├── logger.py
+│       └── hashing.py
+│
+├── models/                        # gitignored, pulled via script
+│   ├── distilbert-quality/
+│   ├── fasttext-lang/
+│   ├── embeddings/
+│   └── registry.json              # tracks model version used per index build
+│
+├── data/
+│   ├── raw/
+│   │   ├── html/                  # gzipped, TTL'd — see scripts/gc_raw.py
+│   │   ├── json/
+│   │   ├── markdown/
+│   │   └── sitemap/
+│   │       ├── sitemap_data.xml
+│   │       └── sitemap_url.xml
+│   ├── processed/
+│   ├── cleaned/
+│   ├── chunks/
+│   └── index/
+│       ├── bm25/
+│       └── vector/
+│
+├── evals/                         # retrieval + RAG quality tracking
+│   ├── queries.jsonl              # labeled query set (start with ~20-50)
+│   ├── run_retrieval_eval.py      # precision@k, nDCG
+│   └── run_rag_eval.py            # answer relevance / citation accuracy
+│
+├── notebooks/                     # exploration only, not shipped
+│
+├── tests/
+│   ├── __init__.py
+│   ├── fixtures/                  # sample HTML, sitemaps, malformed edge cases
+│   ├── unit/
+│   │   ├── test_crawler.py
+│   │   ├── test_frontier.py
+│   │   ├── test_extractor.py
+│   │   ├── test_processing.py
+│   │   ├── test_quality.py
+│   │   ├── test_chunking.py
+│   │   ├── test_storage.py
+│   │   ├── test_indexing.py
+│   │   ├── test_search.py
+│   │   └── test_sources.py
+│   └── integration/
+│       ├── test_crawl_pipeline.py
+│       └── test_search_end_to_end.py
+│
+├── scripts/
+│   ├── run_pipeline.py
+│   ├── crawl.sh
+│   ├── build_index.sh
+│   ├── download_models.py
+│   └── gc_raw.py                  # cleans up raw HTML after successful processing
+│
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
+├── docs/
+│   ├── architecture.md
+│   └── api.md
+│
+└── logs/
 ```

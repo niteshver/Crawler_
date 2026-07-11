@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/2020.acl-main.417.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@inproceedings{banon-etal-2020-paracrawl,\n    title = \"{P}ara{C}rawl: Web-Scale Acquisition of Parallel Corpora\",\n    author = \"Ba{\\~n}{\\'o}n, Marta  and\n      Chen, Pinzhen  and\n      Haddow, Barry  and\n      Heafield, Kenneth  and\n      Hoang, Hieu  and\n      Espl{\\`a}-Gomis, Miquel  and\n      Forcada, Mikel L.  and\n      Kamran, Amir  and\n      Kirefu, Faheem  and\n      Koehn, Philipp  and\n      Ortiz Rojas, Sergio  and\n      Pla Sempere, Leopoldo  and\n      Ram{\\'i}rez-S{\\'a}nchez, Gema  and\n      Sarr{\\'i}as, Elsa  and\n      Strelec, Marek  and\n      Thompson, Brian  and\n      Waites, William  and\n      Wiggins, Dion  and\n      Zaragoza, Jaume\",\n    editor = \"Jurafsky, Dan  and\n      Chai, Joyce  and\n      Schluter, Natalie  and\n      Tetreault, Joel\",\n    booktitle = \"Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics\",\n    month = jul,\n    year = \"2020\",\n    address = \"Online\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2020.acl-main.417/\",\n    doi = \"10.18653/v1/2020.acl-main.417\",\n    pages = \"4555--4567\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/people/mikel-l-forcada/"
+    }
+}

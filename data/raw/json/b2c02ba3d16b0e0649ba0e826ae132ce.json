@@ -1,0 +1,90 @@
+{
+    "url": "https://aclanthology.org/info/credits/",
+    "title": "Credits - ACL Anthology",
+    "status": 200,
+    "markdown": "## Credits\nThe ACL Anthology is largely a volunteer-run organization. We are grateful to all our contributors whose work makes this collection of scholarly papers freely available to all.\n### Active Volunteers\n  * **Director**\n  * **Program Manager** : \n  * **Site Development Lead** : \n  * **Indexing Lead** : \n\n\n### Past Volunteers\n  * Namratha Urs (University of North Texas)\n  * Authors of anthology introductions: John Nerbonne, Julia Hirschberg, Donia Scott, Diane Litman, Sergei Nirenburg, Karen Spärck Jones, and Aravind Joshi.\n\n\n### Past Directors\n  * Eduard Hovy, John Nerbonne, Mike Rosner, Nicoletta Calzolari and Doug Arnold (Past Associate Editors)\n\n\n### Paid Assistants\n  * Ankur Kejriwal (2025—)\n  * Xinru Yan (2020–2025)\n\n\n### Donors\nWe are indebted to the following individuals who generously supplied copies of out-of-print volumes for destructive scanning. Thank you!\n  * **Donors of multiple volumes:** Steven Bird, Nicoletta Calzolari, Kenneth Church, Helen Gigley, Eva Hajicova, Eduard Hovy, Jussi Karlgren, David Lewis, Elliott Macklovitch, Jane Robinson, Petr Sgall, Karen Spärck Jones, Beth Sundheim, Betty Walker, Antonio Zampolli.\n  * **Donors of single volumes:** Elizabeth Andre, Sabine Bergler, Jason Eisner, Andy Kehler, Guy Lapalme, Alberto Lavelli, Winfried Lenders, Bente Maegaard, Mark Maybury, Kathleen McCoy, David McDonald, Ruslan Mitkov, Johanna Moore, John Nerbonne, Yael Netzer, Miles Osborne, Hannes Pirker, James Pustejovsky, Mike Rosner, Donia Scott, Evelyne Viegas, Bonnie Webber, Yorick Wilks.\n  * **Donors of financial support:** We are also indebted to the following individuals who have provided financial support: Sumali Conlon, Barbara Di Eugenio, Margaret Fleck, Mary Harper, Woody Haynes, Lillian Lee, Edward Loper, Grace Ngai, Pierre Nugues, and 1 anonymous donor.\n\n\n### Further Thanks\nOur thanks to:\n  * The University of Chicago Press, for early assistance with copyright transfer agreements.\n  * The European Language Resources Association (ELRA), for allowing us to host the International Conference on Language Resources and Evaluation proceedings series (LREC).\n  * Robert Amsler, for his generous help and support of compiling the listing of the Finite String newsletter, and to David Chiang for undertaking the labor of splitting it up into readable articles.\n\n\n",
+    "internal_links": [
+        {
+            "href": "https://aclanthology.org/",
+            "text": "ACL Anthology",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/posts/",
+            "text": "News(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/faq/",
+            "text": "FAQ(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/info/corrections/",
+            "text": "Corrections(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/info/contrib/",
+            "text": "Submissions(current)",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        },
+        {
+            "href": "https://aclanthology.org/info/credits/",
+            "text": "ACL Anthology team",
+            "title": "",
+            "base_domain": "aclanthology.org",
+            "head_data": null,
+            "head_extraction_status": null,
+            "head_extraction_error": null,
+            "intrinsic_score": 0.0,
+            "contextual_score": null,
+            "total_score": null
+        }
+    ],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": "Credits - ACL Anthology",
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 1,
+        "parent_url": "https://aclanthology.org/2016.amta-researchers.3/"
+    }
+}

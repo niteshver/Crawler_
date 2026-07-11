@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/2010.eamt-1.36.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@inproceedings{schutz-andra-2010-employing,\n    title = \"Employing Machine Translation in Glocalization Tasks {--} A Use Case Study\",\n    author = {Sch{\\\"u}tz, J{\\\"o}rg  and\n      Andr{\\\"a}, Sven Christian},\n    editor = \"Yvon, Fran{\\c{c}}ois  and\n      Hansen, Viggo\",\n    booktitle = \"Proceedings of the 14th Annual Conference of the European Association for Machine Translation\",\n    month = may # \" 27–28\",\n    year = \"2010\",\n    address = {Saint Rapha{\\\"e}l, France},\n    publisher = \"European Association for Machine Translation\",\n    url = \"https://aclanthology.org/2010.eamt-1.36/\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/people/jorg-schutz/unverified/"
+    }
+}

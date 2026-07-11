@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/2003.mtsummit-systems.1.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@inproceedings{alonso-thurmair-2003-comprendium,\n    title = \"The Comprendium Translator system\",\n    author = \"Alonso, Juan A.  and\n      Thurmair, Gregor\",\n    booktitle = \"Proceedings of Machine Translation Summit IX: System Presentations\",\n    month = sep # \" 23-27\",\n    year = \"2003\",\n    address = \"New Orleans, USA\",\n    url = \"https://aclanthology.org/2003.mtsummit-systems.1/\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/people/gregor-thurmair/unverified/"
+    }
+}

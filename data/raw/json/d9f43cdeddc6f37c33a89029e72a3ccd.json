@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/2018.eamt-main.0.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@proceedings{eamt-2018-european,\n    title = \"Proceedings of the 21st Annual Conference of the European Association for Machine Translation\",\n    editor = \"P{\\'e}rez-Ortiz, Juan Antonio  and\n      S{\\'a}nchez-Mart{\\'i}nez, Felipe  and\n      Espl{\\`a}-Gomis, Miquel  and\n      Popovi{\\'c}, Maja  and\n      Rico, Celia  and\n      Martins, Andr{\\'e}  and\n      Van den Bogaert, Joachim  and\n      Forcada, Mikel L.\",\n    month = may,\n    year = \"2018\",\n    address = \"Alicante, Spain\",\n    url = \"https://aclanthology.org/2018.eamt-main.0/\",\n    pages = \"1--30\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/people/felipe-sanchez-martinez/"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/1997.mtsummit-systems.10.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@inproceedings{schutz-1997-multi,\n    title = \"{MULTI}-lingual {DOC}umentation\",\n    author = {Sch{\\\"u}tz, J{\\\"o}rg},\n    editor = \"Teller, Virginia  and\n      Sundheim, Beth\",\n    booktitle = \"Proceedings of Machine Translation Summit VI: Systems\",\n    month = oct # \" 29 – \" # nov # \" 1\",\n    year = \"1997\",\n    address = \"San Diego, California\",\n    url = \"https://aclanthology.org/1997.mtsummit-systems.10/\",\n    pages = \"263--264\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/people/jorg-schutz/unverified/"
+    }
+}

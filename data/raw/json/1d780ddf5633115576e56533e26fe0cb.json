@@ -1,0 +1,17 @@
+{
+    "url": "https://aclanthology.org/1995.mtsummit-1.13.bib",
+    "title": null,
+    "status": 200,
+    "markdown": "\n```\n@inproceedings{cencioni-1995-language,\n    title = \"Language Engineering and the Commission\",\n    author = \"Cencioni, Roberto\",\n    booktitle = \"Proceedings of Machine Translation Summit V\",\n    month = jul # \" 10-13\",\n    year = \"1995\",\n    address = \"Luxembourg, Luxembourg\",\n    url = \"https://aclanthology.org/1995.mtsummit-1.13/\"\n}\n\n\n```\n\n",
+    "internal_links": [],
+    "external_links": [],
+    "images": [],
+    "metadata": {
+        "title": null,
+        "description": null,
+        "keywords": null,
+        "author": null,
+        "depth": 2,
+        "parent_url": "https://aclanthology.org/people/roberto-cencioni/unverified/"
+    }
+}
