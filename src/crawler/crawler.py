@@ -6,7 +6,7 @@ from crawl4ai.deep_crawling.scorers import KeywordRelevanceScorer
 from crawl4ai import AsyncWebCrawler, AdaptiveCrawler
 from crawl4ai.content_filter_strategy import PruningContentFilter
 from crawl4ai import CrawlerMonitor, DisplayMode
-from crawl4ai.async_dispatcher import MemoryAdaptiveDispatcher
+from crawl4ai.async_dispatcher import MemoryAdaptiveDispatcher, RateLimiter
 from crawl4ai import SeedingConfig, async_url_seeder
 import os
 import json
@@ -38,7 +38,7 @@ SOURCES = {
     ],
 }
 
-SITEMAP_PATH = Path(__file__).resolve().parents[2] / "data/raw/sitemap/sitemap_data.xml"
+SITEMAP_PATH = Path(__file__).resolve().parents[2] / "data/raw/sitemap/master_seed.xml"
 # adpative = AdaptiveCrawler()
 
 
@@ -123,16 +123,16 @@ async def main():
         keywords = ["Agent", "agent", "system"],
         weight=0.6
     )
-    dispatcher = MemoryAdaptiveDispatcher(
-        memory_threshold_percent=95.0,
-        check_interval=1.0,
-        max_session_permit=10,
-        # monitor=CrawlerMonitor(
-        #     max_visible_rows=15,
-        #     DisplayMode=DisplayMode.DETAILED
+    # dispatcher = MemoryAdaptiveDispatcher(
+    #     memory_threshold_percent=95.0,
+    #     check_interval=1.0,
+    #     max_session_permit=10,
+    #     monitor=CrawlerMonitor(
+    #         max_visible_rows=15,
+    #         DisplayMode=DisplayMode.DETAILED
 
-        # )
-    )
+    #     )
+    # )
 
     
 
@@ -152,6 +152,27 @@ async def main():
         url_scorer=score,
         max_pages=25
 
+    )
+    dispatcher = MemoryAdaptiveDispatcher(
+    memory_threshold_percent=90.0,  # Pause if memory exceeds this
+    check_interval=1.0,             # How often to check memory
+    max_session_permit=10,          # Maximum concurrent tasks
+    rate_limiter=RateLimiter(       # Optional rate limiting
+        base_delay=(1.0, 2.0),
+        max_delay=30.0,
+        max_retries=2
+    ),
+    # monitor=CrawlerMonitor(         # Optional monitoring
+    #     max_visible_rows=15,
+    #     display_mode=DisplayMode.DETAILED
+    # )
+    monitor=CrawlerMonitor(
+
+        urls_total=len(urls1),
+        refresh_rate=1.0,
+        enable_ui=True,
+        max_width=120,
+        )
     )
 
     config_run = CrawlerRunConfig(
