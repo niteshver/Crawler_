@@ -6,7 +6,7 @@ from src.crawler.crawler import CrawlerManager
 from src.processing.cleaner import TextCleaner
 from src.processing.deduplication import DeduplicationPipeline
 from src.quality.quality_filter import QualityFilter
-from src.chunking/chunker import DocumentChunker
+from src.chunking.chunker import DocumentChunker
 from src.storage.duckdb_store import DuckDBStore
 from src.search.engine import SearchEngine
 
