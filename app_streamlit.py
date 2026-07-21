@@ -103,7 +103,7 @@ st.markdown("""
         border: 1px solid rgba(46, 160, 67, 0.3);
     }
 </style>
-""", unsafe_allowed_html=True)
+""", unsafe_allow_html=True)
 
 # Initialize Session State pipeline
 if "pipeline" not in st.session_state:
